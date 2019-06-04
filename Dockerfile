@@ -1,5 +1,7 @@
-FROM node
-# replace this with your application's default port
+FROM node:latest
+RUN mkdir /dist
+WORKDIR /dist
+ADD ejemplonuxt/package.json /dist/package.json
 RUN npm install
-CMD ["npm", "build", "start", "generate"]
-EXPOSE 8080
+EXPOSE 3000
+CMD generate
